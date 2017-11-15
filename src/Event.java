@@ -11,6 +11,7 @@ public class Event {
 	private String description;
 	private String location;
 	private int sequence;
+	private String lastModified;
 	
 	
 	
@@ -47,7 +48,7 @@ public class Event {
 	}
 	
 	public String getLocation() {
-		return "LOCATION:" + "\n";
+		return this.location;
 	}
 	
 	public String getSequence() {// does this actually work
@@ -58,10 +59,8 @@ public class Event {
 	public String getdtStamp() {
 		Date date = new Date();
 		SimpleDateFormat dt1 = new SimpleDateFormat("yyyyMMdd'T'hhmmss'Z'");
-		System.out.println(dt1.format(date) +"  real real date"); 
 		return "DTSTAMP:" + dt1.format(date)+ "\n";
 	}
-	
 	
 	
 	
@@ -71,13 +70,18 @@ public class Event {
 		return "CREATED:20171114T134140Z"+ "\n";
 	}
 	
-	public String getLastModified() {
-		return "LAST-MODIFIED:20171114T134140Z"+ "\n";
+	public void setLastModified(Date date) {
+		SimpleDateFormat dt1 = new SimpleDateFormat("yyyyMMdd'T'hhmmss'Z'");
+		this.lastModified = dt1.format(date);
 	}
 	
-
+	public String getLastModified() {
+		return "LAST-MODIFIED:"+ this.lastModified + "\n";
+	}
 	
-
+	
+	
+	
 	
 	public String getStatus() {
 		return "STATUS:CONFIRMED"+ "\n";

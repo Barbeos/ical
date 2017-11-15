@@ -22,6 +22,7 @@ public class CalMain  {
     	c.setTimeZone("Europe/Copenhagen");
     	e.setdtStart("2017", "11", "24", "140000");
     	e.setDtEnd("2017", "11", "24", "150000");
+    	e.setLastModified(new Date());
     	
     	cSVWriter.writeLine(Arrays.asList(c.getBeginCalendar()  + 
     	c.getversion()+ c.getCalscale() + c.getMethod() + 
