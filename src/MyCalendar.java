@@ -1,20 +1,20 @@
 
 
-public class Calendar {
+public class MyCalendar {
 	private String prodid;
 	private String version;
-	private String beginCalendar = "BEGIN:VCALENDAR";
+	private String beginCalendar = "BEGIN:VCALENDAR" + "\n";
 	private String calscale;
 	private String method;
 	private String timeZone;
 	private String end = "END:VCALENDAR";
 	
 	public void setprodid(String prodid) {
-		this.prodid = "PRODID:" + prodid;
+		this.prodid = "PRODID:" + prodid+ "\n";
 	}
 	
 	public void setversion(String version) {
-		this.version = "VERSION:" + version;
+		this.version = "VERSION:" + version+ "\n";
 	}
 	
 	public String getversion() {
@@ -30,7 +30,7 @@ public class Calendar {
 	}
 	
 	public void setCalscale(String calscale) {
-		this.calscale = "CALSCALE:" + calscale;
+		this.calscale = "CALSCALE:" + calscale+ "\n";
 	}
 	
 	public String getCalscale() {
@@ -38,7 +38,7 @@ public class Calendar {
 	}
 	
 	public void setMethod(String method) {
-		this.method = "METHOD:" + method;
+		this.method = "METHOD:" + method+ "\n";
 	}
 	
 	public String getMethod() {

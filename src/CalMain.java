@@ -1,13 +1,19 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.TimeZone;
 
-public class Main  {
+import javax.swing.text.DateFormatter;
+
+public class CalMain  {
 	
 	public static void main(String[] args) {
 		
     	CSVWriter cSVWriter = new CSVWriter("beef.ical", false);
     	CSVReader cSVReader = new CSVReader();
     	
-    	Calendar c = new Calendar();
+    	MyCalendar c = new MyCalendar();
     	Event e = new Event();
     	c.setprodid("-//Google Inc//Google Calendar 70.9054//EN");
     	c.setversion("2.0");
@@ -17,15 +23,14 @@ public class Main  {
     	e.setdtStart("2017", "11", "24", "140000");
     	e.setDtEnd("2017", "11", "24", "150000");
     	
-    	cSVWriter.writeLine(Arrays.asList(c.getBeginCalendar()  + "\n" + 
-    	c.getversion() + "\n" + c.getCalscale() + "\n" + c.getMethod() + "\n" + 
+    	cSVWriter.writeLine(Arrays.asList(c.getBeginCalendar()  + 
+    	c.getversion()+ c.getCalscale() + c.getMethod() + 
     			c.getTimeZone()));
 
-    	cSVWriter.writeLine(Arrays.asList(e.getBegin() + "\n" + e.getdtStart() + "\n" + 
-    			e.getdtend() + "\n" + e.getdtStamp() + "\n" + e.getCreated() + "\n" + 
-    			e.getDescription() + "\n" + e.getLastModified() + "\n" + e.getLocation() + 
-    			"\n" + e.getSequence() + "\n" + e.getStatus() + "\n" + e.getSummary() + 
-    			"\n" + e.getTransp() + "\n" + e.getEnd()));
+    	cSVWriter.writeLine(Arrays.asList(e.getBegin() + e.getdtStart() + 
+    			e.getdtend() + e.getdtStamp() + e.getCreated() + e.getDescription() + 
+    			e.getLastModified() + e.getLocation() + e.getSequence() + e.getStatus() + 
+    			e.getSummary() + e.getTransp() + e.getEnd()));
     	
     	cSVWriter.writeLine(Arrays.asList(c.getEnd()));
     	/*
@@ -45,6 +50,13 @@ public class Main  {
     	END:VEVENT
     	*/
     	cSVWriter.closeWriter();
+    	
+    
+
+		Date date = new Date();
+		SimpleDateFormat dt1 = new SimpleDateFormat("yyyyMMdd'T'hhmmss'Z'");
+		System.out.println(dt1.format(date) +"  real real date"); 
+
 		
 	}
 	
@@ -57,6 +69,4 @@ public class Main  {
 	X-WR-TIMEZONE:Europe/Copenhagen
 	END:VCALENDAR
 	*/
-	
-
 }

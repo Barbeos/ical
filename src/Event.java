@@ -1,4 +1,8 @@
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Event {
 	private String begin = "BEGIN:VEVENT";
@@ -11,11 +15,11 @@ public class Event {
 	
 	
 	public String getBegin() {
-		return this.begin;
+		return this.begin + "\n";
 	}
 	
 	public void setdtStart(String sYear, String sMonth, String sDay, String sTime) {
-		this.dtStart = "DTSTART:" + sYear + sMonth + sDay + "T" + sTime + "z";
+		this.dtStart = "DTSTART:" + sYear + sMonth + sDay + "T" + sTime + "z"+ "\n";
 	}
 	
 	public String getdtStart() {
@@ -23,7 +27,7 @@ public class Event {
 	}
 	
 	public void setDtEnd(String eYear, String eMonth, String eDay, String eTime) {
-		this.dtEnd = "DTEND:" + eYear + eMonth + eDay + "T" + eTime + "z";
+		this.dtEnd = "DTEND:" + eYear + eMonth + eDay + "T" + eTime + "z"+ "\n";
 	}
 	
 	public String getdtend() {
@@ -35,37 +39,40 @@ public class Event {
 	}
 	
 	public String getDescription() {
-		return "DESCRIPTION:" + this.description;
+		return "DESCRIPTION:" + this.description + "\n";
 	}
 	
 	public void setLocation(String location) {
-		this.location = "LOCATION:" + location;
+		this.location = "LOCATION:" + location+ "\n";
 	}
 	
 	public String getLocation() {
-		return "LOCATION:";
+		return "LOCATION:" + "\n";
 	}
 	
 	public String getSequence() {// does this actually work
 		this.sequence = this.sequence + 1;
-		return "SEQUENCE:" + this.sequence;
+		return "SEQUENCE:" + this.sequence+ "\n";
 	}
-	
-	
-	
-	
-	
 	
 	public String getdtStamp() {
-		return "DTSTAMP:" + "20171114T180833Z";
+		Date date = new Date();
+		SimpleDateFormat dt1 = new SimpleDateFormat("yyyyMMdd'T'hhmmss'Z'");
+		System.out.println(dt1.format(date) +"  real real date"); 
+		return "DTSTAMP:" + dt1.format(date)+ "\n";
 	}
 	
+	
+	
+	
+	
+	
 	public String getCreated() {
-		return "CREATED:20171114T134140Z";
+		return "CREATED:20171114T134140Z"+ "\n";
 	}
 	
 	public String getLastModified() {
-		return "LAST-MODIFIED:20171114T134140Z";
+		return "LAST-MODIFIED:20171114T134140Z"+ "\n";
 	}
 	
 
@@ -73,15 +80,15 @@ public class Event {
 
 	
 	public String getStatus() {
-		return "STATUS:CONFIRMED";
+		return "STATUS:CONFIRMED"+ "\n";
 	}
 	
 	public String getSummary() {
-		return "SUMMARY:b";
+		return "SUMMARY:b"+ "\n";
 	}
 	
 	public String getTransp() {
-		return "TRANSP:OPAQUE";
+		return "TRANSP:OPAQUE"+ "\n";
 	}
 	
 	public String getEnd() {
